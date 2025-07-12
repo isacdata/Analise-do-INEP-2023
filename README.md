@@ -1,39 +1,51 @@
-# 📘 Análise do INEP 2023 – Desigualdade Educacional e Modelagem Preditiva
+# 📘 Análise do ENEM 2023 – Desigualdade Educacional a partir dos Microdados do INEP
 
-Este projeto analisa dados educacionais reais do ENEM e SISU com foco nos candidatos à UFABC (Universidade Federal do ABC), explorando disparidades sociais e estruturais no acesso ao ensino superior. Ele combina análise estatística, visualizações e modelagem supervisionada para explicar e prever o desempenho dos candidatos.
-
----
-
-## 🎯 Objetivos
-
-- Investigar desigualdades educacionais por tipo de escola, modalidade de ingresso e renda
-- Aplicar testes estatísticos para validar hipóteses sobre diferenças entre grupos
-- Prever a nota final do candidato e estimar sua probabilidade de aprovação com modelos supervisionados
+Este projeto realiza uma análise estatística exploratória e modelagem preditiva com base nos microdados do ENEM 2023, fornecidos pelo INEP. O foco está em investigar como fatores socioeconômicos influenciam o desempenho dos candidatos, evidenciando padrões de desigualdade educacional.
 
 ---
 
-## 📊 Principais Descobertas ⭐
+## 🎯 Objetivo
 
-- ⭐ Candidatos da ampla concorrência tiveram **média significativamente maior** que os de cotas
-- ⭐ Modalidades de cotas ligadas a baixa renda e PCD apresentaram **as menores notas médias**
-- ⭐ Mesmo com ações afirmativas, ainda existem **lacunas estruturais** no acesso
-- ⭐ Modelos segmentados por curso apresentaram **R² de até 0.99** (ex: BCT e CH)
-- ⭐ Clusterização por curso **melhorou muito a performance** comparado à base geral do ENEM
+Entender **o quanto fatores como faixa etária, renda, escolaridade dos pais, etnia, tipo de escola e acesso à tecnologia** influenciam a nota final do ENEM.  
+A partir disso, testar hipóteses sobre disparidades educacionais estruturais no Brasil.
+
+---
+
+## 📌 Hipóteses Investigadas ⭐
+
+- ⭐ Qual faixa etária teve melhor desempenho no ENEM?
+- ⭐ A renda familiar impacta significativamente a nota final?
+- ⭐ O nível de escolaridade dos pais influencia o resultado?
+- ⭐ Há diferença entre gêneros e entre grupos raciais?
+- ⭐ Candidatos de escolas públicas têm desvantagem estatística?
+- ⭐ Qual o perfil de quem tira mais de 750 pontos?
+- ⭐ Quem fica abaixo de 500 pontos tem perfil comum?
+
+---
+
+## 📊 Dados Utilizados
+
+- Fonte: Microdados do ENEM 2023  
+- Origem: [gov.br/inep](https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem)
+- Tamanho bruto: ~500MB (não incluído neste repositório)
+- Variáveis utilizadas:
+  - Notas por área: `NU_NOTA_MT`, `NU_NOTA_LC`, `NU_NOTA_CH`, `NU_NOTA_CN`, `NU_NOTA_REDACAO`
+  - Dados pessoais: `TP_SEXO`, `TP_COR_RACA`, `TP_ESCOLA`, `TP_FAIXA_ETARIA`
+  - Questionário socioeconômico: `Q001–Q006` (renda, escolaridade, internet, computador)
 
 ---
 
 ## 🧪 Técnicas Utilizadas
 
-- Estatística descritiva e testes de hipótese (ANOVA, t-test, chi²)
-- Regressão com `XGBoost Regressor`
-- Classificação com `XGBoost Classifier`
-- Avaliação com MSE, R², acurácia, ROC AUC
-- Pré-processamento com `OneHotEncoder`, `ColumnTransformer`
-- Tuning com `GridSearchCV`
+- Estatística descritiva e análise exploratória com gráficos
+- Testes de hipótese: ANOVA, t-test, chi²
+- Regressão com `XGBoost` (target: nota final)
+- Avaliação com R², MSE
+- Pré-processamento com `OneHotEncoder` e `ColumnTransformer`
 
 ---
 
-## 🗂️ Estrutura do Projeto
+## 📁 Estrutura
 
 ```
 analise-inep-2023/
@@ -46,24 +58,7 @@ analise-inep-2023/
 
 ---
 
-## 🧾 Sobre os Dados
-
-Utilizamos dados públicos do ENEM/SISU/UFABC referentes ao ano de 2023:
-
-- 📁 Dados da PROGRAD/UFABC: classificação por curso, turno, modalidade  
-- 📁 Microdados do ENEM – INEP  
-- 📁 SISU – dados abertos do MEC  
-
-📌 **Os dados são pesados (~500MB+) e não estão incluídos neste repositório.**  
-Você pode obtê-los nas fontes oficiais:
-
-- https://dados.ufabc.edu.br/bases-dados/44-bd-prograd01  
-- https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem  
-- https://dadosabertos.mec.gov.br/sisu
-
----
-
-## 🚀 Como Rodar
+## 🚀 Como Executar
 
 1. Clone o repositório:
 ```bash
@@ -71,7 +66,7 @@ git clone https://github.com/seuusuario/analise-inep-2023.git
 cd analise-inep-2023
 ```
 
-2. Instale os requisitos:
+2. Instale os pacotes:
 ```bash
 pip install -r requirements.txt
 ```
@@ -82,10 +77,11 @@ pip install -r requirements.txt
 
 ## 👤 Autor
 
-Desenvolvido por **Isac Vieira** para fins educacionais, analíticos e sociais.
+Projeto desenvolvido por **Isac Vieira**, com interesse em análise educacional, estatística aplicada e ciência de dados com propósito social.
 
 ---
 
 ## 📄 Licença
 
-Projeto open source para fins educacionais e acadêmicos. Dados tratados conforme termos públicos das instituições.
+Uso livre para fins educacionais. Dados utilizados seguem os termos públicos de acesso do INEP.
+
