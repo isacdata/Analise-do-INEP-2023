@@ -49,10 +49,9 @@ A partir disso, testar hipóteses sobre disparidades educacionais estruturais no
 
 ```
 analise-inep-2023/
-├── notebooks/
-│   ├── INEP23.ipynb            # Análise exploratória e estatística
-│   └── ML Models.ipynb         # Modelagem preditiva
-├── requirements.txt
+├── INEP23.ipynb            # Análise exploratória e estatística
+├── ML Models.ipynb         # Modelagem preditiva
+├── requirements_inep.txt
 └── README.md
 ```
 
